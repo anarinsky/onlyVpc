@@ -30,7 +30,7 @@ data "aws_caller_identity" "aws-identity" {
 
 
 module "vpc" {
-  source               = "./modules/network/tf_aws_vpc_v12"
+  source               = "./modules/vpc"
   name                 = "${var.env_name}-${lower(var.project_name)}-vpc"
   cidr                 = var.cidr
   private_subnets      = var.private_subnets
