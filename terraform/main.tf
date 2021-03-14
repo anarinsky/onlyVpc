@@ -8,7 +8,6 @@ terraform {
     region         = "us-east-1"
     bucket         = "rental-app-tf-state-123"
     key            = "terraform/us-east-1/develop/db_monitoring_prototype.tfstate"
-    dynamodb_table = "rental-app-tf-state-123"
   }
 }
 
