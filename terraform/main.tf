@@ -2,13 +2,13 @@ provider "aws" {
   region  = var.region
   version = "~> 2.66.0"
 }
+resource "aws_s3_bucket" "s3" {
+  bucket = "my-tf-test-bucket"
+  acl    = "private"
 
-terraform {
-  backend "s3" {
-    region         = "us-east-1"
-    bucket         = "rental-app-tf-state-123"
-    key            = "terraform/us-east-1/develop/db_monitoring_prototype.tfstate"
-    dynamodb_table = "rental-app-tf-state-123"
+  tags = {
+    Name        = "My bucket"
+    Environment = "Dev"
   }
 }
 
