@@ -6,9 +6,17 @@ resource "aws_s3_bucket" "s3" {
   bucket = "my-tf-test-bucket"
   acl    = "private"
 
+<<<<<<< HEAD
   tags = {
     Name        = "My bucket"
     Environment = "Dev"
+=======
+terraform {
+  backend "s3" {
+    region         = "us-east-1"
+    bucket         = "rental-app-tf-state-123"
+    key            = "terraform/us-east-1/develop/db_monitoring_prototype.tfstate"
+>>>>>>> 88de8ff9b67906df1fb42b6b972e1583ca7281b7
   }
 }
 
@@ -30,7 +38,7 @@ data "aws_caller_identity" "aws-identity" {
 
 
 module "vpc" {
-  source               = "./modules/network/tf_aws_vpc_v12"
+  source               = "./modules/vpc"
   name                 = "${var.env_name}-${lower(var.project_name)}-vpc"
   cidr                 = var.cidr
   private_subnets      = var.private_subnets
