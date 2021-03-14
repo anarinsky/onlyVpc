@@ -12,12 +12,6 @@ variable "private_subnets" {
   default     = []
 }
 
-variable "database_subnets" {
-  type        = list
-  description = "A list of database subnets"
-  default     = []
-}
-
 variable "azs" {
   description = "A list of Availability zones in the region"
   default     = []
@@ -41,16 +35,6 @@ variable "enable_nat_gateway" {
 variable "map_public_ip_on_launch" {
   description = "should be false if you do not want to auto-assign public IP on launch"
   default     = true
-}
-
-variable "private_propagating_vgws" {
-  description = "A list of VGWs the private route table should propagate."
-  default     = []
-}
-
-variable "public_propagating_vgws" {
-  description = "A list of VGWs the public route table should propagate."
-  default     = []
 }
 
 variable "tags" {
