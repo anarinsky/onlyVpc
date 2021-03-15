@@ -5,20 +5,19 @@ provider "aws" {
 resource "aws_s3_bucket" "s3" {
   bucket = "my-tf-test-bucket"
   acl    = "private"
-
-<<<<<<< HEAD
   tags = {
     Name        = "My bucket"
     Environment = "Dev"
-=======
+    }
+  }
+
 terraform {
   backend "s3" {
-    region         = "us-east-1"
-    bucket         = "rental-app-tf-state-123"
-    key            = "terraform/us-east-1/develop/db_monitoring_prototype.tfstate"
->>>>>>> 88de8ff9b67906df1fb42b6b972e1583ca7281b7
+    region = "us-east-1"
+    bucket = "my-tf-test-bucket"
+    key = "onlyVpc/terraform.tfstate"
+  	}
   }
-}
 
 locals {
   current_env = var.env_name
