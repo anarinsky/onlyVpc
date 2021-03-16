@@ -1,3 +1,16 @@
+output "vpc_state" {
+  value = data.aws_vpc.my-vpc.state
+}
+
+output "vpc_tags" {
+  value = data.aws_vpc.my-vpc.tags["date"]
+}
+
+output "vpc_tag_env" {
+  value = aws_vpc.vpc_vars.tags["env"]
+}
+
+
 output "private_subnets" {
   value = aws_subnet.private.*.id
 }

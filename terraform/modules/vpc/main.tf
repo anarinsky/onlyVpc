@@ -9,12 +9,6 @@ data "aws_vpc" "my-vpc" {
   id = aws_vpc.vpc_vars.id
 }
 
-output "vpc_state" {
-  value = data.aws_vpc.my-vpc.state
-}
-
-
-
 resource "aws_internet_gateway" "internet_gateway" {
   vpc_id = aws_vpc.vpc_vars.id
   tags   = merge(var.tags, map("Name", format("%s-igw", var.name)))
@@ -77,4 +71,5 @@ resource "aws_nat_gateway" "natgw" {
   ]
   tags = merge(var.tags, map("Name", format("%s", var.name)))
 }
+
 

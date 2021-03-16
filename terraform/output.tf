@@ -15,5 +15,9 @@ output "cidr_block" {
   }
 
 output "azs" {
-  value = data.aws_availability_zones.available.names[1]
+  value = slice(data.aws_availability_zones.available.names, 0, 2)
+}
+
+output "env" {
+  value = module.vpc.vpc_tag_env
 }
