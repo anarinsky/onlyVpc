@@ -1,2 +1,6 @@
 .DS_STORE
 .project
+.idea
+terraform/.terraform
+terraform/.terraform.*
+.gitignore

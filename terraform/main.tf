@@ -1,23 +1,7 @@
 provider "aws" {
   region  = var.region
-  version = "~> 2.66.0"
-}
-resource "aws_s3_bucket" "s3" {
-  bucket = "my-tf-test-bucket"
-  acl    = "private"
-
-<<<<<<< HEAD
-  tags = {
-    Name        = "My bucket"
-    Environment = "Dev"
-=======
-terraform {
-  backend "s3" {
-    region         = "us-east-1"
-    bucket         = "rental-app-tf-state-123"
-    key            = "terraform/us-east-1/develop/db_monitoring_prototype.tfstate"
->>>>>>> 88de8ff9b67906df1fb42b6b972e1583ca7281b7
-  }
+  access_key = "AKIAX6T"
+  secret_key = "rbJISMrsYce8vriggC2D2JubvaEXw3"
 }
 
 locals {
@@ -35,7 +19,6 @@ data "aws_availability_zones" "available" {
 
 data "aws_caller_identity" "aws-identity" {
 }
-
 
 module "vpc" {
   source               = "./modules/vpc"

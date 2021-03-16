@@ -12,7 +12,6 @@ resource "aws_internet_gateway" "internet_gateway" {
 
 resource "aws_route_table" "public" {
   vpc_id           = aws_vpc.vpc_vars.id
-  propagating_vgws = var.public_propagating_vgws
   tags             = merge(var.tags, map("Name", format("%s-rt-public", var.name)))
 }
 
@@ -31,7 +30,6 @@ resource "aws_route" "private_nat_gateway" {
 
 resource "aws_route_table" "private" {
   vpc_id           = aws_vpc.vpc_vars.id
-  propagating_vgws = var.private_propagating_vgws
   count            = length(var.private_subnets)
   tags             = merge(var.tags, map("Name", format("%s-rt-private-%s", var.name, element(var.azs, count.index))))
 }

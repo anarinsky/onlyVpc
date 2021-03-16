@@ -2,28 +2,20 @@ output "private_subnets" {
   value = aws_subnet.private.*.id
 }
 
-output "database_subnets" {
-  value = aws_subnet.database.*.id
-}
-
-output "database_subnet_group" {
-  value = element(aws_db_subnet_group.database.*.id, 0)
-}
-
 output "public_subnets" {
   value = aws_subnet.public.*.id
 }
 
 output "vpc_id" {
-  value = aws_vpc.mod.id
+  value = aws_vpc.vpc_vars.id
 }
 
 output "cidr_block" {
-  value = aws_vpc.mod.cidr_block
+  value = aws_vpc.vpc_vars.cidr_block
 }
 
 output "main_route_table_id" {
-  value = aws_vpc.mod.main_route_table_id
+  value = aws_vpc.vpc_vars.main_route_table_id
 }
 
 output "public_route_table_ids" {
@@ -35,7 +27,7 @@ output "private_route_table_ids" {
 }
 
 output "default_security_group_id" {
-  value = aws_vpc.mod.default_security_group_id
+  value = aws_vpc.vpc_vars.default_security_group_id
 }
 
 output "nat_eips" {
@@ -51,5 +43,5 @@ output "natgw_ids" {
 }
 
 output "igw_id" {
-  value = aws_internet_gateway.mod.id
+  value = aws_internet_gateway.internet_gateway.id
 }
