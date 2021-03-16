@@ -19,13 +19,6 @@ data "aws_availability_zones" "available" {
 data "aws_caller_identity" "aws-identity" {
 }
 
-<<<<<<< HEAD
-=======
-data "aws_vpc" "my-vpc" {
-  cidr_block = "10.110.0.0/16"
-}
-
->>>>>>> 7cf0067435b59ad3efdb54f04e5860f01bd17849
 
 module "vpc" {
   source               = "./modules/vpc"
