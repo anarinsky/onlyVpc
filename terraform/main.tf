@@ -19,6 +19,14 @@ data "aws_availability_zones" "available" {
 data "aws_caller_identity" "aws-identity" {
 }
 
+data "aws_vpc" "my-vpc" {
+  cidr_block = "10.110.0.0/16"
+}
+
+output "vpc_state" {
+  value = data.aws_vpc.my-vpc.state
+}
+
 module "vpc" {
   source               = "./modules/vpc"
   name                 = "${var.env_name}-${lower(var.project_name)}-vpc"
