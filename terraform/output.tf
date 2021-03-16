@@ -14,3 +14,6 @@ output "cidr_block" {
   value = module.vpc.cidr_block
   }
 
+output "vpc_state" {
+  value = data.aws_vpc.my-vpc.state
+}
