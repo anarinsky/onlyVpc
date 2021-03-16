@@ -1,7 +1,5 @@
 provider "aws" {
   region  = var.region
-  access_key = "AKIAX6T"
-  secret_key = "rbJISMrsYce8vriggC2D2JubvaEXw3"
 }
 
 locals {
@@ -11,6 +9,7 @@ locals {
     Terraform   = "true"
     ProjectName = var.project_name
     Environment = var.env_name
+    CreationDate = var.creation_date
   }
 }
 
@@ -34,7 +33,8 @@ module "vpc" {
   tags = merge(
     local.default_tags,
     {
-      SomeTag = "SomeValue"
+      env = "Development"
+      date = "02-14-2021"
     }
   )
 }
