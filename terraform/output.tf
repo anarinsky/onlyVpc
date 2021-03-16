@@ -14,3 +14,6 @@ output "cidr_block" {
   value = module.vpc.cidr_block
   }
 
+output "azs" {
+  value = data.aws_availability_zones.available.names[1]
+}

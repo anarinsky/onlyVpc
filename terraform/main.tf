@@ -19,13 +19,6 @@ data "aws_availability_zones" "available" {
 data "aws_caller_identity" "aws-identity" {
 }
 
-data "aws_vpc" "my-vpc" {
-  cidr_block = "10.110.0.0/16"
-}
-
-output "vpc_state" {
-  value = data.aws_vpc.my-vpc.state
-}
 
 module "vpc" {
   source               = "./modules/vpc"
@@ -34,6 +27,7 @@ module "vpc" {
   private_subnets      = var.private_subnets
   public_subnets       = var.public_subnets
   enable_nat_gateway   = "false"
+  vpc_id               = var.id
   enable_dns_support   = "true"
   enable_dns_hostnames = "true"
   azs                  = slice(data.aws_availability_zones.available.names, 0, length(var.private_subnets))

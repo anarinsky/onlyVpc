@@ -14,6 +14,10 @@ output "cidr_block" {
   value = aws_vpc.vpc_vars.cidr_block
 }
 
+output "azs" {
+  value = var.azs
+}
+
 output "main_route_table_id" {
   value = aws_vpc.vpc_vars.main_route_table_id
 }
