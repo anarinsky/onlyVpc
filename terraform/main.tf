@@ -1,8 +1,29 @@
 provider "aws" {
   region  = var.region
+<<<<<<< HEAD
   access_key = "AKIAX6T"
   secret_key = "rbJISMrsYce8vriggC2D2JubvaEXw3"
 }
+=======
+  version = "~> 2.66.0"
+}
+resource "aws_s3_bucket" "s3" {
+  bucket = "my-tf-test-bucket"
+  acl    = "private"
+  tags = {
+    Name        = "My bucket"
+    Environment = "Dev"
+    }
+  }
+
+terraform {
+  backend "s3" {
+    region = "us-east-1"
+    bucket = "my-tf-test-bucket"
+    key = "onlyVpc/terraform.tfstate"
+  	}
+  }
+>>>>>>> ba2d9678bc52171ca6b23a890e7cdf9b588aa6db
 
 locals {
   current_env = var.env_name
